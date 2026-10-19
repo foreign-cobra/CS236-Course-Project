@@ -1,0 +1,473 @@
+
+============================================================================
+NYC
+File: NYC CSV
+
+Raw schema (strings preserve the CSV text for quality checks):
+  unique_key: string (nullable=True)
+  created_date: string (nullable=True)
+  closed_date: string (nullable=True)
+  agency: string (nullable=True)
+  agency_name: string (nullable=True)
+  complaint_type: string (nullable=True)
+  descriptor: string (nullable=True)
+  descriptor_2: string (nullable=True)
+  location_type: string (nullable=True)
+  incident_zip: string (nullable=True)
+  incident_address: string (nullable=True)
+  street_name: string (nullable=True)
+  cross_street_1: string (nullable=True)
+  cross_street_2: string (nullable=True)
+  intersection_street_1: string (nullable=True)
+  intersection_street_2: string (nullable=True)
+  address_type: string (nullable=True)
+  city: string (nullable=True)
+  landmark: string (nullable=True)
+  facility_type: string (nullable=True)
+  status: string (nullable=True)
+  due_date: string (nullable=True)
+  resolution_description: string (nullable=True)
+  resolution_action_updated_date: string (nullable=True)
+  community_board: string (nullable=True)
+  council_district: string (nullable=True)
+  police_precinct: string (nullable=True)
+  bbl: string (nullable=True)
+  borough: string (nullable=True)
+  x_coordinate_state_plane: string (nullable=True)
+  y_coordinate_state_plane: string (nullable=True)
+  open_data_channel_type: string (nullable=True)
+  park_facility_name: string (nullable=True)
+  park_borough: string (nullable=True)
+  vehicle_type: string (nullable=True)
+  taxi_company_borough: string (nullable=True)
+  taxi_pick_up_location: string (nullable=True)
+  bridge_highway_name: string (nullable=True)
+  bridge_highway_direction: string (nullable=True)
+  road_ramp: string (nullable=True)
+  bridge_highway_segment: string (nullable=True)
+  latitude: string (nullable=True)
+  longitude: string (nullable=True)
+  location: string (nullable=True)
+Spark-inferred schema (use as type suggestions; verify identifiers and codes):
+  unique_key: int (nullable=True)
+  created_date: timestamp (nullable=True)
+  closed_date: timestamp (nullable=True)
+  agency: string (nullable=True)
+  agency_name: string (nullable=True)
+  complaint_type: string (nullable=True)
+  descriptor: string (nullable=True)
+  descriptor_2: string (nullable=True)
+  location_type: string (nullable=True)
+  incident_zip: string (nullable=True)
+  incident_address: string (nullable=True)
+  street_name: string (nullable=True)
+  cross_street_1: string (nullable=True)
+  cross_street_2: string (nullable=True)
+  intersection_street_1: string (nullable=True)
+  intersection_street_2: string (nullable=True)
+  address_type: string (nullable=True)
+  city: string (nullable=True)
+  landmark: string (nullable=True)
+  facility_type: string (nullable=True)
+  status: string (nullable=True)
+  due_date: timestamp (nullable=True)
+  resolution_description: string (nullable=True)
+  resolution_action_updated_date: timestamp (nullable=True)
+  community_board: string (nullable=True)
+  council_district: int (nullable=True)
+  police_precinct: string (nullable=True)
+  bbl: bigint (nullable=True)
+  borough: string (nullable=True)
+  x_coordinate_state_plane: int (nullable=True)
+  y_coordinate_state_plane: int (nullable=True)
+  open_data_channel_type: string (nullable=True)
+  park_facility_name: string (nullable=True)
+  park_borough: string (nullable=True)
+  vehicle_type: string (nullable=True)
+  taxi_company_borough: string (nullable=True)
+  taxi_pick_up_location: string (nullable=True)
+  bridge_highway_name: string (nullable=True)
+  bridge_highway_direction: string (nullable=True)
+  road_ramp: string (nullable=True)
+  bridge_highway_segment: string (nullable=True)
+  latitude: double (nullable=True)
+  longitude: double (nullable=True)
+  location: string (nullable=True)
+Columns: 44
+Rows: 800,000
+Representative rows:
+{"unique_key":"70643465","created_date":"2026-10-05T02:05:08.000","agency":"NYPD","agency_name":"New York City Police Department","complaint_type":"Noise - Residential","descriptor":"Banging/Pounding","location_type":"Residential Building/House","incident_zip":"11235","incident_address":"3029 BRIGHTON 12 STREET","street_name":"BRIGHTON 12 STREET","cross_street_1":"OCEAN VIEW AVENUE","cross_street_2":"BRIGHTON BEACH AVENUE","intersection_street_1":"OCEAN VIEW AVENUE","intersection_street_2":"BRIGHTON BEACH AVENUE","address_type":"ADDRESS","city":"BROOKLYN","landmark":"BRIGHTON 12 STREET","status":"In Progress","community_board":"13 BROOKLYN","council_district":"48","police_precinct":"Precinct 60","bbl":"3087150068","borough":"BROOKLYN","x_coordinate_state_plane":"996179","y_coordinate_state_plane":"150335","open_data_channel_type":"ONLINE","park_facility_name":"Unspecified","park_borough":"BROOKLYN","latitude":"40.579302862451435","longitude":"-73.95705637804446","location":"POINT (-73.957056378044 40.579302862451)"}
+{"unique_key":"70641951","created_date":"2026-10-05T02:04:27.000","agency":"NYPD","agency_name":"New York City Police Department","complaint_type":"Noise - Residential","descriptor":"Loud Music/Party","location_type":"Residential Building/House","incident_zip":"11365","incident_address":"67-30 164 STREET","street_name":"164 STREET","cross_street_1":"67 AVENUE","cross_street_2":"69 AVENUE","intersection_street_1":"67 AVENUE","intersection_street_2":"69 AVENUE","address_type":"ADDRESS","city":"FRESH MEADOWS","landmark":"164 STREET","status":"In Progress","community_board":"08 QUEENS","council_district":"24","police_precinct":"Precinct 107","bbl":"4067920600","borough":"QUEENS","x_coordinate_state_plane":"1038313","y_coordinate_state_plane":"206790","open_data_channel_type":"ONLINE","park_facility_name":"Unspecified","park_borough":"QUEENS","latitude":"40.73410221047962","longitude":"-73.80492443747828","location":"POINT (-73.804924437478 40.73410221048)"}
+{"unique_key":"70643154","created_date":"2026-10-05T02:04:18.000","agency":"NYPD","agency_name":"New York City Police Department","complaint_type":"Illegal Parking","descriptor":"License Plate Obscured","location_type":"Street/Sidewalk","incident_zip":"10039","incident_address":"295 WEST 150 STREET","street_name":"WEST 150 STREET","cross_street_1":"ADAM CLAYTON POWELL JR BOULEVARD","cross_street_2":"FREDERICK DOUGLASS BOULEVARD","intersection_street_1":"ADAM CLAYTON POWELL JR BOULEVARD","intersection_street_2":"FREDERICK DOUGLASS BOULEVARD","address_type":"ADDRESS","city":"NEW YORK","landmark":"WEST 150 STREET","status":"In Progress","community_board":"10 MANHATTAN","council_district":"09","police_precinct":"Precinct 32","bbl":"1020360001","borough":"MANHATTAN","x_coordinate_state_plane":"1001160","y_coordinate_state_plane":"240114","open_data_channel_type":"PHONE","park_facility_name":"Unspecified","park_borough":"MANHATTAN","latitude":"40.825716808303696","longitude":"-73.93889967226517","location":"POINT (-73.938899672265 40.825716808304)"}
+{"unique_key":"70642079","created_date":"2026-10-05T02:03:43.000","agency":"NYPD","agency_name":"New York City Police Department","complaint_type":"Illegal Parking","descriptor":"Blocked Hydrant","location_type":"Street/Sidewalk","incident_zip":"10036","incident_address":"515 WEST 47 STREET","street_name":"WEST 47 STREET","cross_street_1":"10 AVENUE","cross_street_2":"11 AVENUE","intersection_street_1":"10 AVENUE","intersection_street_2":"11 AVENUE","address_type":"ADDRESS","city":"NEW YORK","landmark":"WEST 47 STREET","status":"In Progress","community_board":"04 MANHATTAN","council_district":"03","police_precinct":"Precinct 18","bbl":"1010760023","borough":"MANHATTAN","x_coordinate_state_plane":"985903","y_coordinate_state_plane":"217325","open_data_channel_type":"MOBILE","park_facility_name":"Unspecified","park_borough":"MANHATTAN","latitude":"40.76318320670634","longitude":"-73.99403287955857","location":"POINT (-73.994032879559 40.763183206706)"}
+{"unique_key":"70644721","created_date":"2026-10-05T02:03:35.000","agency":"NYPD","agency_name":"New York City Police Department","complaint_type":"Noise - Residential","descriptor":"Loud Music/Party","location_type":"Residential Building/House","incident_zip":"11211","incident_address":"984 METROPOLITAN AVENUE","street_name":"METROPOLITAN AVENUE","cross_street_1":"CATHERINE STREET","cross_street_2":"MORGAN AVENUE","intersection_street_1":"CATHERINE STREET","intersection_street_2":"MORGAN AVENUE","address_type":"ADDRESS","city":"BROOKLYN","landmark":"METROPOLITAN AVENUE","status":"In Progress","community_board":"01 BROOKLYN","council_district":"34","police_precinct":"Precinct 90","bbl":"3029180006","borough":"BROOKLYN","x_coordinate_state_plane":"1001880","y_coordinate_state_plane":"199592","open_data_channel_type":"MOBILE","park_facility_name":"Unspecified","park_borough":"BROOKLYN","latitude":"40.71449310950549","longitude":"-73.93640442019242","location":"POINT (-73.936404420192 40.714493109505)"}
+Missing/blank values by column (only nonzero columns):
+  taxi_company_borough: 799,369 (99.92%)
+  road_ramp: 797,966 (99.75%)
+  bridge_highway_direction: 797,807 (99.73%)
+  due_date: 796,849 (99.61%)
+  bridge_highway_name: 796,127 (99.52%)
+  bridge_highway_segment: 796,127 (99.52%)
+  taxi_pick_up_location: 792,169 (99.02%)
+  facility_type: 769,295 (96.16%)
+  vehicle_type: 760,420 (95.05%)
+  descriptor_2: 424,217 (53.03%)
+  landmark: 259,749 (32.47%)
+  cross_street_1: 192,306 (24.04%)
+  cross_street_2: 192,035 (24.00%)
+  intersection_street_1: 191,338 (23.92%)
+  intersection_street_2: 190,927 (23.87%)
+  bbl: 99,123 (12.39%)
+  closed_date: 84,106 (10.51%)
+  location_type: 63,140 (7.89%)
+  city: 55,385 (6.92%)
+  resolution_description: 37,478 (4.68%)
+  resolution_action_updated_date: 35,055 (4.38%)
+  street_name: 22,548 (2.82%)
+  incident_address: 22,532 (2.82%)
+  council_district: 18,704 (2.34%)
+  latitude: 14,630 (1.83%)
+  location: 14,630 (1.83%)
+  longitude: 14,630 (1.83%)
+  x_coordinate_state_plane: 14,607 (1.83%)
+  y_coordinate_state_plane: 14,495 (1.81%)
+  incident_zip: 6,881 (0.86%)
+  address_type: 4,444 (0.56%)
+Identifier unique_key: missing rows=0, distinct values=800,000, duplicate-value groups=0
+Exact duplicate rows beyond first occurrence (row hash): 0
+Date ranges and parse failures:
+  created_date: min=2026-07-22 09:27:15, max=2026-10-05 02:05:08, nonblank_unparsed=0
+  closed_date: min=2026-07-08 23:36:00, max=2026-10-05 03:27:00, nonblank_unparsed=0
+  due_date: min=2026-07-28 06:36:18, max=2026-11-03 18:04:31, nonblank_unparsed=0
+  resolution_action_updated_date: min=2022-10-13 07:35:08, max=2026-10-05 12:00:00, nonblank_unparsed=0
+Top categorical values (top 10; nulls omitted):
+  agency:
+    NYPD: 372,269
+    HPD: 135,875
+    DSNY: 72,196
+    DOT: 55,413
+    DEP: 48,641
+    DPR: 40,374
+    DOB: 27,555
+    DOHMH: 20,623
+    DHS: 12,039
+    TLC: 8,020
+  agency_name:
+    New York City Police Department: 372,269
+    Department of Housing Preservation and Development: 135,875
+    Department of Sanitation: 72,196
+    Department of Transportation: 55,413
+    Department of Environmental Protection: 48,641
+    Department of Parks and Recreation: 40,374
+    Department of Buildings: 27,555
+    Department of Health and Mental Hygiene: 20,623
+    Department of Homeless Services: 12,039
+    Taxi and Limousine Commission: 8,020
+  complaint_type:
+    Illegal Parking: 128,241
+    Noise - Residential: 77,800
+    Noise - Street/Sidewalk: 54,255
+    Blocked Driveway: 37,713
+    UNSANITARY CONDITION: 35,048
+    Street Condition: 21,422
+    Dirty Condition: 17,042
+    Abandoned Vehicle: 16,305
+    PLUMBING: 16,092
+    Water Maintenance: 16,039
+  descriptor:
+    Loud Music/Party: 101,486
+    Blocked Hydrant: 34,686
+    Posted Parking Sign Violation: 31,980
+    Banging/Pounding: 29,490
+    No Access: 27,267
+    Blocked Sidewalk: 19,167
+    PESTS: 19,029
+    Trash: 18,684
+    N/A: 18,106
+    With License Plate: 16,305
+  descriptor_2:
+    N/A: 123,054
+    NO HOT WATER: 11,317
+    AT WALL OR CEILING: 10,174
+    Littering: 10,023
+    BROKEN OR MISSING: 9,363
+    ROACHES: 8,002
+    Location Type: Intersection: 7,083
+    MICE: 6,855
+    Not Cleaned by Property Owner: 5,742
+    Operating Improperly: 5,190
+  location_type:
+    Street/Sidewalk: 273,913
+    RESIDENTIAL BUILDING: 135,875
+    Street: 88,236
+    Residential Building/House: 86,828
+    Sidewalk: 50,294
+    Store/Commercial: 13,210
+    Park: 8,610
+    Sewer: 7,795
+    N/A: 5,850
+    Club/Bar/Restaurant: 5,431
+  status:
+    Closed: 704,789
+    In Progress: 54,731
+    Open: 36,761
+    Assigned: 3,322
+    Pending: 330
+    Unspecified: 53
+    Started: 14
+  borough:
+    BROOKLYN: 255,562
+    QUEENS: 203,042
+    MANHATTAN: 156,448
+    BRONX: 152,400
+    STATEN ISLAND: 31,608
+    Unspecified: 940
+  open_data_channel_type:
+    ONLINE: 419,261
+    PHONE: 163,519
+    MOBILE: 150,744
+    UNKNOWN: 65,687
+    OTHER: 789
+Geographic/numeric latitude: min=40.49892396163828, max=40.912868795316655, nonblank_unparsed=0
+Geographic/numeric longitude: min=-74.25493716802339, max=-73.70038354802529, nonblank_unparsed=0
+Geographic/numeric x_coordinate_state_plane: min=913357.0, max=1067279.0, nonblank_unparsed=0
+Geographic/numeric y_coordinate_state_plane: min=121140.0, max=271876.0, nonblank_unparsed=0
+
+============================================================================
+LA
+File: LA CSV
+
+Raw schema (strings preserve the CSV text for quality checks):
+  srnumber: string (nullable=True)
+  createddate: string (nullable=True)
+  updateddate: string (nullable=True)
+  actiontaken: string (nullable=True)
+  owner: string (nullable=True)
+  requesttype: string (nullable=True)
+  status: string (nullable=True)
+  requestsource: string (nullable=True)
+  createdbyuserorganization: string (nullable=True)
+  mobileos: string (nullable=True)
+  anonymous: string (nullable=True)
+  assignto: string (nullable=True)
+  servicedate: string (nullable=True)
+  closeddate: string (nullable=True)
+  addressverified: string (nullable=True)
+  approximateaddress: string (nullable=True)
+  address: string (nullable=True)
+  housenumber: string (nullable=True)
+  direction: string (nullable=True)
+  streetname: string (nullable=True)
+  suffix: string (nullable=True)
+  zipcode: string (nullable=True)
+  latitude: string (nullable=True)
+  longitude: string (nullable=True)
+  location: string (nullable=True)
+  tbmpage: string (nullable=True)
+  tbmcolumn: string (nullable=True)
+  tbmrow: string (nullable=True)
+  apc: string (nullable=True)
+  cd: string (nullable=True)
+  cdmember: string (nullable=True)
+  nc: string (nullable=True)
+  ncname: string (nullable=True)
+  policeprecinct: string (nullable=True)
+Spark-inferred schema (use as type suggestions; verify identifiers and codes):
+  srnumber: string (nullable=True)
+  createddate: timestamp (nullable=True)
+  updateddate: timestamp (nullable=True)
+  actiontaken: string (nullable=True)
+  owner: string (nullable=True)
+  requesttype: string (nullable=True)
+  status: string (nullable=True)
+  requestsource: string (nullable=True)
+  createdbyuserorganization: string (nullable=True)
+  mobileos: string (nullable=True)
+  anonymous: string (nullable=True)
+  assignto: string (nullable=True)
+  servicedate: timestamp (nullable=True)
+  closeddate: timestamp (nullable=True)
+  addressverified: string (nullable=True)
+  approximateaddress: string (nullable=True)
+  address: string (nullable=True)
+  housenumber: int (nullable=True)
+  direction: string (nullable=True)
+  streetname: string (nullable=True)
+  suffix: string (nullable=True)
+  zipcode: string (nullable=True)
+  latitude: double (nullable=True)
+  longitude: double (nullable=True)
+  location: string (nullable=True)
+  tbmpage: int (nullable=True)
+  tbmcolumn: string (nullable=True)
+  tbmrow: int (nullable=True)
+  apc: string (nullable=True)
+  cd: int (nullable=True)
+  cdmember: string (nullable=True)
+  nc: int (nullable=True)
+  ncname: string (nullable=True)
+  policeprecinct: string (nullable=True)
+Columns: 34
+Rows: 800,000
+Representative rows:
+{"srnumber":"1-4601720641","createddate":"2024-01-01T00:00:06.000","updateddate":"2024-01-03T10:37:51.000","actiontaken":"SR Created","owner":"LASAN","requesttype":"Bulky Items","status":"Closed","requestsource":"Call","createdbyuserorganization":"LASAN","anonymous":"N","assignto":"SLA","servicedate":"2024-01-03T00:00:00.000","closeddate":"2024-01-03T10:34:37.000","addressverified":"Y","approximateaddress":"N","address":"3608 S MUIRFIELD ROAD, 90016","housenumber":"3608","direction":"S","streetname":"MUIRFIELD","suffix":"ROAD","zipcode":"90016","latitude":"34.0211832597","longitude":"-118.342143549","location":"POINT (-118.342143549 34.0211832597)","tbmpage":"673","tbmcolumn":"D","tbmrow":"1","apc":"South Los Angeles APC","cd":"10","cdmember":"Heather Hutt","nc":"75","ncname":"West Adams","policeprecinct":"SOUTHWEST"}
+{"srnumber":"1-4601721601","createddate":"2024-01-01T00:05:06.000","updateddate":"2024-01-01T00:05:06.000","actiontaken":"SR Created","owner":"BSL","requesttype":"Multiple Streetlight Issue","status":"Open","requestsource":"Self Service","createdbyuserorganization":"Self Service","anonymous":"N","assignto":"WEST","addressverified":"Y","approximateaddress":"Y","address":"1523 W PACIFIC COAST HWY, 90710","housenumber":"1523","direction":"W","streetname":"PACIFIC COAST","suffix":"HWY","zipcode":"90710","latitude":"33.789784475205","longitude":"-118.3036039481","location":"POINT (-118.3036039481 33.789784475205)","tbmpage":"793","tbmcolumn":"J","tbmrow":"5","apc":"Harbor APC","cd":"15","cdmember":"Tim McOsker","nc":"92","ncname":"Harbor City","policeprecinct":"HARBOR"}
+{"srnumber":"1-4601723091","createddate":"2024-01-01T00:06:54.000","updateddate":"2024-09-16T11:51:33.000","actiontaken":"SR Created","owner":"BSL","requesttype":"Single Streetlight Issue","status":"Closed","requestsource":"Mobile App","createdbyuserorganization":"Self Service","mobileos":"iOS","anonymous":"N","assignto":"CENTRAL","servicedate":"2024-09-16T11:39:44.000","closeddate":"2024-09-16T11:51:33.000","addressverified":"Y","address":"817 N ORANGE GROVE AVE, 90046","housenumber":"817","direction":"N","streetname":"ORANGE GROVE","suffix":"AVE","zipcode":"90046","latitude":"34.0858735","longitude":"-118.36056718","location":"POINT (-118.36056718 34.0858735)","tbmpage":"593","tbmcolumn":"B","tbmrow":"6","apc":"Central APC","cd":"5","cdmember":"Katy Yaroslavsky","nc":"58","ncname":"Mid-City West","policeprecinct":"WILSHIRE"}
+{"srnumber":"1-4601721751","createddate":"2024-01-01T00:11:45.000","updateddate":"2024-01-02T19:01:31.000","actiontaken":"SR Created","owner":"LASAN","requesttype":"Bulky Items","status":"Closed","requestsource":"Mobile App","createdbyuserorganization":"Self Service","mobileos":"Android","anonymous":"Y","assignto":"WV","servicedate":"2024-01-02T00:00:00.000","closeddate":"2024-01-02T09:58:40.000","addressverified":"Y","address":"7502 N CANBY AVE, 91335","housenumber":"7502","direction":"N","streetname":"CANBY","suffix":"AVE","zipcode":"91335","latitude":"34.2067120073","longitude":"-118.533785604","location":"POINT (-118.533785604 34.2067120073)","tbmpage":"530","tbmcolumn":"J","tbmrow":"4","apc":"South Valley APC","cd":"4","cdmember":"Nithya Raman","nc":"15","ncname":"Reseda","policeprecinct":"WEST VALLEY"}
+{"srnumber":"1-4601723281","createddate":"2024-01-01T00:18:03.000","updateddate":"2024-01-29T09:06:38.000","actiontaken":"SR Created","owner":"OCB","requesttype":"Graffiti Removal","status":"Closed","requestsource":"Mobile App","createdbyuserorganization":"Self Service","mobileos":"iOS","anonymous":"N","assignto":"CCAC","servicedate":"2024-01-29T00:00:00.000","closeddate":"2024-01-29T09:06:38.000","addressverified":"Y","approximateaddress":"N","address":"1151 W VENICE BLVD, 90015","housenumber":"1151","direction":"W","streetname":"VENICE","suffix":"BLVD","zipcode":"90015","latitude":"34.0423584867","longitude":"-118.28067055","location":"POINT (-118.28067055 34.0423584867)","tbmpage":"634","tbmcolumn":"B","tbmrow":"5","apc":"Central APC","cd":"1","cdmember":"Eunisses Hernandez","nc":"76","ncname":"Pico Union","policeprecinct":"RAMPART"}
+Missing/blank values by column (only nonzero columns):
+  mobileos: 522,586 (65.32%)
+  approximateaddress: 324,461 (40.56%)
+  housenumber: 114,696 (14.34%)
+  streetname: 114,695 (14.34%)
+  cdmember: 70,014 (8.75%)
+  suffix: 63,446 (7.93%)
+  direction: 53,219 (6.65%)
+  servicedate: 53,038 (6.63%)
+  closeddate: 36,222 (4.53%)
+  nc: 11,414 (1.43%)
+  ncname: 11,414 (1.43%)
+  assignto: 7,469 (0.93%)
+  zipcode: 887 (0.11%)
+  apc: 822 (0.10%)
+  policeprecinct: 792 (0.10%)
+  tbmcolumn: 774 (0.10%)
+  tbmpage: 774 (0.10%)
+  tbmrow: 774 (0.10%)
+  cd: 770 (0.10%)
+  latitude: 767 (0.10%)
+  location: 767 (0.10%)
+  longitude: 767 (0.10%)
+  address: 233 (0.03%)
+Identifier srnumber: missing rows=0, distinct values=800,000, duplicate-value groups=0
+Exact duplicate rows beyond first occurrence (row hash): 0
+Date ranges and parse failures:
+  createddate: min=2024-01-01 00:00:06, max=2024-07-24 23:14:35, nonblank_unparsed=0
+  updateddate: min=2024-01-01 00:05:06, max=2026-01-31 05:53:27, nonblank_unparsed=0
+  servicedate: min=2022-08-30 10:51:34, max=2025-09-03 15:53:36, nonblank_unparsed=0
+  closeddate: min=2024-01-01 07:39:53, max=2025-10-16 00:02:44, nonblank_unparsed=0
+Top categorical values (top 10; nulls omitted):
+  owner:
+    LASAN: 593,483
+    OCB: 177,440
+    BSL: 22,429
+    ITA: 5,663
+    LADWP: 797
+    BSS: 99
+    LADOT: 39
+    RAP: 27
+    LADBS: 13
+    LAAS: 9
+  requesttype:
+    Bulky Items: 378,124
+    Graffiti Removal: 177,470
+    Metal/Household Appliances: 67,616
+    Illegal Dumping Pickup: 59,582
+    Homeless Encampment: 47,660
+    Electronic Waste: 22,144
+    Dead Animal Removal: 18,146
+    Multiple Streetlight Issue: 11,830
+    Single Streetlight Issue: 10,520
+    Other: 5,424
+  status:
+    Closed: 730,126
+    Cancelled: 34,725
+    Pending: 17,972
+    Open: 16,081
+    Referred Out: 932
+    Forward: 164
+  requestsource:
+    Call: 314,443
+    Mobile App: 277,390
+    Self Service: 128,422
+    Driver Self Report: 75,986
+    Council's Office: 1,940
+    Email: 1,522
+    Voicemail: 232
+    Social: 51
+    Fax: 4
+    Walk-in: 4
+  createdbyuserorganization:
+    Self Service: 374,103
+    LASAN: 265,992
+    OCB: 69,922
+    ITA: 48,639
+    Self Service_SAN: 30,660
+    Proactive Insert: 6,254
+    Council's Office: 3,872
+    BSS: 326
+    LASAN Franchise: 121
+    BSL: 78
+  mobileos:
+    iOS: 220,125
+    Android: 57,289
+  anonymous:
+    N: 695,817
+    Y: 104,183
+  assignto:
+    EV: 133,632
+    NC: 116,773
+    SLA: 107,328
+    WV: 101,617
+    WLA: 84,767
+    HB: 32,891
+    GAPBH: 27,983
+    GAP: 21,977
+    WVA: 18,566
+    HBT: 18,001
+  apc:
+    South Los Angeles APC: 156,130
+    South Valley APC: 152,290
+    Central APC: 148,235
+    North Valley APC: 134,557
+    East Los Angeles APC: 97,152
+    West Los Angeles APC: 68,286
+    Harbor APC: 42,528
+  ncname:
+    Boyle Heights: 26,953
+    Wilshire Center-Koreatown: 18,621
+    Downtown Los Angeles: 18,351
+    Van Nuys: 18,135
+    Empowerment Congress Southeast: 18,002
+    Sylmar: 17,156
+    Echo Park: 14,629
+    NoHo: 14,291
+    Reseda: 13,525
+    Woodland Hills-Warner Center: 12,933
+  policeprecinct:
+    NORTHEAST: 51,006
+    MISSION: 46,834
+    HOLLENBECK: 46,735
+    NORTH HOLLYWOOD: 46,294
+    77TH STREET: 43,672
+    DEVONSHIRE: 43,432
+    WEST VALLEY: 40,264
+    PACIFIC: 38,959
+    RAMPART: 38,921
+    HARBOR: 38,373
+Geographic/numeric latitude: min=33.706051966, max=34.3343354198, nonblank_unparsed=0
+Geographic/numeric longitude: min=-118.667840918, max=-118.155792027, nonblank_unparsed=0
+
+============================================================================
+SCHEMA COMPARISON
+NYC-only column names: ['address_type', 'agency', 'agency_name', 'bbl', 'borough', 'bridge_highway_direction', 'bridge_highway_name', 'bridge_highway_segment', 'city', 'closed_date', 'community_board', 'complaint_type', 'council_district', 'created_date', 'cross_street_1', 'cross_street_2', 'descriptor', 'descriptor_2', 'due_date', 'facility_type', 'incident_address', 'incident_zip', 'intersection_street_1', 'intersection_street_2', 'landmark', 'location_type', 'open_data_channel_type', 'park_borough', 'park_facility_name', 'police_precinct', 'resolution_action_updated_date', 'resolution_description', 'road_ramp', 'street_name', 'taxi_company_borough', 'taxi_pick_up_location', 'unique_key', 'vehicle_type', 'x_coordinate_state_plane', 'y_coordinate_state_plane']
+LA-only column names: ['actiontaken', 'address', 'addressverified', 'anonymous', 'apc', 'approximateaddress', 'assignto', 'cd', 'cdmember', 'closeddate', 'createdbyuserorganization', 'createddate', 'direction', 'housenumber', 'mobileos', 'nc', 'ncname', 'owner', 'policeprecinct', 'requestsource', 'requesttype', 'servicedate', 'srnumber', 'streetname', 'suffix', 'tbmcolumn', 'tbmpage', 'tbmrow', 'updateddate', 'zipcode']
+Exact-name matches and inferred types:
+  latitude: NYC=double, LA=double
+  location: NYC=string, LA=string
+  longitude: NYC=double, LA=double
+  status: NYC=string, LA=string
+
+Initial conceptual correspondences to review (not automatic equivalences):
+  NYC unique_key <-> LA srnumber: request identifier
+  NYC created_date <-> LA createddate: creation time
+  NYC closed_date <-> LA closeddate: closure time
+  NYC complaint_type / descriptor <-> LA requesttype: request category/detail
+  NYC status <-> LA status: workflow status
+  NYC open_data_channel_type <-> LA requestsource: intake channel
+  NYC incident_zip <-> zipcode: postal code
+
+  ADDED!!! City for further identification
+  NYC source_city <-> LA source_city
+
+Report saved to: C:\Users\izaip\OneDrive\Desktop\CS 236\311-integration\reports\eda_report.txt

@@ -1,0 +1,19 @@
+# Large source datasets
+/nyc_311_800k.csv
+/la_311_800k.csv
+
+# Generated Spark and Parquet outputs
+/processed/
+/nyc_merge_ready.parquet
+/la_merge_ready.parquet
+
+# Local Python environments and cache
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+
+# Local credentials
+.env
+.env.*
+!.env.example

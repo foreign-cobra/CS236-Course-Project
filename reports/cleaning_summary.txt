@@ -1,0 +1,23 @@
+NYC cleaning summary
+Output: /mnt/c/Users/izaip/OneDrive/Desktop/CS 236/311-integration/processed/nyc_cleaned_parquet
+rows: 800000
+date_parse_error_rows: 1
+coordinate_parse_error_rows: 0
+closed_before_created_rows: 626
+closed_status_missing_close_time_rows: 4
+coordinates_outside_world_bounds_rows: 0
+min_resolution_hours: 0.0
+max_resolution_hours: 1730.1241666666667
+
+LA cleaning summary
+Output: /mnt/c/Users/izaip/OneDrive/Desktop/CS 236/311-integration/processed/la_cleaned_parquet
+rows: 800000
+date_parse_error_rows: 0
+coordinate_parse_error_rows: 0
+closed_before_created_rows: 0
+closed_status_missing_close_time_rows: 1991
+coordinates_outside_world_bounds_rows: 0
+min_resolution_hours: 0.0
+max_resolution_hours: 14653.503611111111
+
+No source columns or rows are intentionally dropped. Blank strings are nullified, selected dates and coordinates are typed, source fields are preserved, and shared integration fields are added. See docs/eda_findings.md for the rationale.
