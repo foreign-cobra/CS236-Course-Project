@@ -3,6 +3,7 @@
 /la_311_800k.csv
 
 # Generated Spark and Parquet outputs
+/data/
 /processed/
 /nyc_merge_ready.parquet
 /la_merge_ready.parquet

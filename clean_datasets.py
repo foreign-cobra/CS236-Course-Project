@@ -5,8 +5,8 @@ from pathlib import Path
 from pyspark.sql import SparkSession, functions as F
 
 BASE = Path(__file__).resolve().parent
-NYC_PATH = BASE / "nyc_311_800k.csv"
-LA_PATH = BASE / "la_311_800k.csv"
+NYC_PATH = BASE / "data" / "nyc_311_800k.csv"
+LA_PATH = BASE / "data" / "la_311_800k.csv"
 OUTPUT_DIR = BASE / "processed"
 REPORT_DIR = BASE / "reports"
 SUMMARY_PATH = REPORT_DIR / "cleaning_summary.txt"

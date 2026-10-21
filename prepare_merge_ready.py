@@ -25,22 +25,28 @@ COMMON_FIELDS = [
     ("created_at", "created_at", "timestamp"),
     ("closed_at", "closed_at", "timestamp"),
     ("status", "status_original", "string"),
+    ("resolution_hours", "resolution_time_hours", "double"),
 ]
 GEO_FIELDS = [
     ("postal_code", "postal_code", "string"),
     ("latitude", "latitude", "double"),
     ("longitude", "longitude", "double"),
+    ("location", "location", "string"),
 ]
 CITY_FIELDS = {
     "NYC": [
         ("responsible_organization", "agency", "string"),
         ("request_type", "complaint_type", "string"),
         ("submission_channel", "open_data_channel_type", "string"),
+        ("address", "incident_address", "string"),
+        ("council_district", "council_district", "string"),
     ],
     "LA": [
         ("responsible_organization", "owner", "string"),
         ("request_type", "requesttype", "string"),
         ("submission_channel", "requestsource", "string"),
+        ("address", "address", "string"),
+        ("council_district", "cd", "string"),
     ],
 }
 

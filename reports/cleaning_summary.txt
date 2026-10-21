@@ -1,7 +1,7 @@
 NYC cleaning summary
-Output: /mnt/c/Users/izaip/OneDrive/Desktop/CS 236/311-integration/processed/nyc_cleaned_parquet
+Output: /Users/colin/CS236-Course-Project/processed/nyc_cleaned_parquet
 rows: 800000
-date_parse_error_rows: 1
+date_parse_error_rows: 0
 coordinate_parse_error_rows: 0
 closed_before_created_rows: 626
 closed_status_missing_close_time_rows: 4
@@ -10,7 +10,7 @@ min_resolution_hours: 0.0
 max_resolution_hours: 1730.1241666666667
 
 LA cleaning summary
-Output: /mnt/c/Users/izaip/OneDrive/Desktop/CS 236/311-integration/processed/la_cleaned_parquet
+Output: /Users/colin/CS236-Course-Project/processed/la_cleaned_parquet
 rows: 800000
 date_parse_error_rows: 0
 coordinate_parse_error_rows: 0

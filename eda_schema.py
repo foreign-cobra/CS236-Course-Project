@@ -4,8 +4,8 @@ from pyspark.sql import SparkSession, functions as F
 # Source files live next to this script. The script only reads the CSVs and
 # writes a text report under ./reports; it does not edit either source file.
 BASE = Path(__file__).resolve().parent
-NYC_PATH = BASE / "nyc_311_800k.csv"
-LA_PATH = BASE / "la_311_800k.csv"
+NYC_PATH = BASE / "data" / "nyc_311_800k.csv"
+LA_PATH = BASE / "data" / "la_311_800k.csv"
 REPORT_DIR = BASE / "reports"
 REPORT_PATH = REPORT_DIR / "eda_report.txt"
 
