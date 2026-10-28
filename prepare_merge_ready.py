@@ -1,3 +1,4 @@
+
 """Create compact, consistently named Parquet datasets for NYC and LA 311.
 
 Reads the full cleaned Parquet datasets and writes selected merge-ready columns
@@ -31,7 +32,6 @@ GEO_FIELDS = [
     ("postal_code", "postal_code", "string"),
     ("latitude", "latitude", "double"),
     ("longitude", "longitude", "double"),
-    ("location", "location", "string"),
 ]
 CITY_FIELDS = {
     "NYC": [
@@ -60,9 +60,73 @@ def select_merge_fields(df, city):
             "Check that clean_datasets.py completed successfully and that this script "
             "is in the same project folder."
         )
-    return df.select(
-        *[F.col(source).cast(data_type).alias(output) for output, source, data_type in mappings]
+
+    selected = df.select([
+        F.col(source).cast(dtype).alias(output)
+        for output, source, dtype in mappings
+    ])
+
+    # Standardize status into Open, Pending, and Closed.
+    status = F.lower(F.trim(F.col("status")))
+
+    selected = selected.withColumn(
+        "status",
+        F.when(status.isin("open", "started", "assigned", "in progress"), "Open")
+         .when(status.isin("pending", "forward", "referred out"), "Pending")
+         .when(status.isin("closed", "cancelled", "canceled"), "Closed")
+         .otherwise(F.lit(None).cast("string"))
     )
+
+    # Standardize submission channels across both cities.
+    channel = F.lower(F.trim(F.col("submission_channel")))
+
+    selected = selected.withColumn(
+        "submission_channel",
+        F.when(channel.isin("online", "self service"), "Online")
+         .when(channel.isin("mobile", "mobile app"), "Mobile App")
+         .when(channel.isin("phone", "call"), "Phone")
+         .when(channel == "email", "Email")
+         .when(channel.isin("unknown", ""), "Unknown")
+         .otherwise(F.col("submission_channel"))
+    )
+
+    # Standardize five-digit ZIP codes.
+    selected = selected.withColumn(
+        "postal_code",
+        F.regexp_extract(F.trim(F.col("postal_code")), r"^(\d{5})(?:-\d{4})?$", 1)
+    )
+
+    selected = selected.withColumn(
+        "postal_code",
+        F.when(F.col("postal_code") == "", None)
+         .otherwise(F.col("postal_code"))
+    )
+
+    # Remove invalid coordinates from the merge-ready output.
+    selected = selected.withColumn(
+        "latitude",
+        F.when(F.col("latitude").between(-90, 90), F.col("latitude"))
+    ).withColumn(
+        "longitude",
+        F.when(F.col("longitude").between(-180, 180), F.col("longitude"))
+    )
+
+    # Generate a consistent WKT location from coordinates.
+    selected = selected.withColumn(
+        "location",
+        F.when(
+            F.col("latitude").isNotNull() & F.col("longitude").isNotNull(),
+            F.concat(
+                F.lit("POINT ("),
+                F.col("longitude").cast("string"),
+                F.lit(" "),
+                F.col("latitude").cast("string"),
+                F.lit(")")
+            )
+        )
+    )
+
+    return selected
 
 
 def main():

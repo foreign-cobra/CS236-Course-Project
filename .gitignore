@@ -7,6 +7,7 @@
 /processed/
 /nyc_merge_ready.parquet
 /la_merge_ready.parquet
+/merged_311.parquet
 
 # Local Python environments and cache
 .venv/
