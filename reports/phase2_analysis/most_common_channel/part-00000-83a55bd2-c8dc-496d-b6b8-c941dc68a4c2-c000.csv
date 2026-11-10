@@ -1,0 +1,3 @@
+source_city,channel_category,request_count,city_request_count,percent_of_city_requests
+LA,phone,314675,800000,39.33
+NYC,online_self_service,419261,800000,52.41

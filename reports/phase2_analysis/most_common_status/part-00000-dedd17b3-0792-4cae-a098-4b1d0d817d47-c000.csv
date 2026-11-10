@@ -1,0 +1,3 @@
+source_city,status_category,request_count,city_request_count,percent_of_city_requests
+LA,closed,764851,800000,95.61
+NYC,closed,704789,800000,88.1

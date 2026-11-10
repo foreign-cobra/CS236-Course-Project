@@ -1,0 +1,198 @@
+To view this report for yourself, please ensure you have the "merged_311_parquet" file in the "processed" directory.
+Then run the "display_phase2_results.py" file in the repository
+
+It'll display the results in the terminal!
+
+--- weekly_volume ---
+source_city,month,period_number,month_period,request_count
+LA,2024-01,1,days 1-7,28614
+LA,2024-01,2,days 8-14,28527
+LA,2024-01,3,days 15-21,27527
+LA,2024-01,4,day 22-end,40147
+LA,2024-02,1,days 1-7,18873
+LA,2024-02,2,days 8-14,24485
+LA,2024-02,3,days 15-21,21680
+LA,2024-02,4,day 22-end,33040
+LA,2024-03,1,days 1-7,26853
+LA,2024-03,2,days 8-14,29338
+LA,2024-03,3,days 15-21,26808
+LA,2024-03,4,day 22-end,32787
+LA,2024-04,1,days 1-7,27858
+LA,2024-04,2,days 8-14,26297
+LA,2024-04,3,days 15-21,26332
+LA,2024-04,4,day 22-end,38165
+LA,2024-05,1,days 1-7,26096
+LA,2024-05,2,days 8-14,26606
+LA,2024-05,3,days 15-21,27216
+LA,2024-05,4,day 22-end,39610
+LA,2024-06,1,days 1-7,25923
+LA,2024-06,2,days 8-14,27938
+LA,2024-06,3,days 15-21,28425
+LA,2024-06,4,day 22-end,33736
+LA,2024-07,1,days 1-7,28849
+LA,2024-07,2,days 8-14,30162
+LA,2024-07,3,days 15-21,29814
+LA,2024-07,4,day 22-end,18294
+NYC,2026-07,4,day 22-end,103830
+NYC,2026-08,1,days 1-7,73771
+NYC,2026-08,2,days 8-14,74973
+NYC,2026-08,3,days 15-21,73983
+NYC,2026-08,4,day 22-end,106178
+NYC,2026-09,1,days 1-7,71830
+NYC,2026-09,2,days 8-14,78021
+NYC,2026-09,3,days 15-21,75812
+NYC,2026-09,4,day 22-end,97953
+NYC,2026-10,1,days 1-7,43648
+
+--- weekly_extremes ---
+source_city,extreme,month,period_number,month_period,request_count
+LA,highest,2024-01,4,day 22-end,40147
+LA,lowest,2024-07,4,day 22-end,18294
+NYC,highest,2026-08,4,day 22-end,106178
+NYC,lowest,2026-10,1,days 1-7,43648
+
+--- top_postal_codes ---
+source_city,postal_code,postal_request_count,postal_rank
+LA,90026,19661,1
+LA,91342,18691,2
+LA,90011,17299,3
+LA,91331,17116,4
+LA,90003,16270,5
+LA,90033,15174,6
+LA,91335,14744,7
+LA,90019,14106,8
+LA,90044,14000,9
+LA,90731,13840,10
+NYC,11226,13832,1
+NYC,10457,10944,2
+NYC,10453,10670,3
+NYC,11201,10278,4
+NYC,10452,10261,5
+NYC,10467,10199,6
+NYC,10458,10049,7
+NYC,11385,10037,8
+NYC,10456,9745,9
+NYC,11207,9635,10
+
+--- top_request_types_by_postal_code ---
+source_city,postal_code,request_type,type_request_count,postal_request_count,percent_of_postal_requests,type_rank
+LA,90003,Bulky Items,6732,16270,41.38,1
+LA,90003,Illegal Dumping Pickup,2948,16270,18.12,2
+LA,90003,Graffiti Removal,2789,16270,17.14,3
+LA,90011,Bulky Items,8166,17299,47.21,1
+LA,90011,Graffiti Removal,3209,17299,18.55,2
+LA,90011,Illegal Dumping Pickup,1888,17299,10.91,3
+LA,90019,Bulky Items,6722,14106,47.65,1
+LA,90019,Graffiti Removal,2830,14106,20.06,2
+LA,90019,Metal/Household Appliances,1240,14106,8.79,3
+LA,90026,Graffiti Removal,8138,19661,41.39,1
+LA,90026,Bulky Items,7246,19661,36.85,2
+LA,90026,Metal/Household Appliances,1129,19661,5.74,3
+LA,90033,Graffiti Removal,9242,15174,60.91,1
+LA,90033,Bulky Items,3462,15174,22.82,2
+LA,90033,Illegal Dumping Pickup,599,15174,3.95,3
+LA,90044,Bulky Items,6711,14000,47.94,1
+LA,90044,Graffiti Removal,2316,14000,16.54,2
+LA,90044,Illegal Dumping Pickup,2227,14000,15.91,3
+LA,90731,Bulky Items,7264,13840,52.49,1
+LA,90731,Graffiti Removal,2654,13840,19.18,2
+LA,90731,Metal/Household Appliances,1710,13840,12.36,3
+LA,91331,Bulky Items,9126,17116,53.32,1
+LA,91331,Illegal Dumping Pickup,1937,17116,11.32,2
+LA,91331,Graffiti Removal,1704,17116,9.96,3
+LA,91335,Bulky Items,7604,14744,51.57,1
+LA,91335,Graffiti Removal,2458,14744,16.67,2
+LA,91335,Metal/Household Appliances,1453,14744,9.85,3
+LA,91342,Bulky Items,8571,18691,45.86,1
+LA,91342,Graffiti Removal,4909,18691,26.26,2
+LA,91342,Metal/Household Appliances,1745,18691,9.34,3
+NYC,10452,Noise - Street/Sidewalk,2036,10261,19.84,1
+NYC,10452,Noise - Residential,1038,10261,10.12,2
+NYC,10452,UNSANITARY CONDITION,896,10261,8.73,3
+NYC,10453,Noise - Street/Sidewalk,2505,10670,23.48,1
+NYC,10453,Noise - Residential,1209,10670,11.33,2
+NYC,10453,Illegal Parking,892,10670,8.36,3
+NYC,10456,Noise - Residential,2138,9745,21.94,1
+NYC,10456,Noise - Street/Sidewalk,1489,9745,15.28,2
+NYC,10456,UNSANITARY CONDITION,802,9745,8.23,3
+NYC,10457,Noise - Street/Sidewalk,1818,10944,16.61,1
+NYC,10457,Noise - Residential,1281,10944,11.71,2
+NYC,10457,UNSANITARY CONDITION,1102,10944,10.07,3
+NYC,10458,Noise - Street/Sidewalk,1545,10049,15.37,1
+NYC,10458,Noise - Residential,1237,10049,12.31,2
+NYC,10458,Illegal Parking,922,10049,9.18,3
+NYC,10467,Noise - Residential,1238,10199,12.14,1
+NYC,10467,Illegal Parking,1105,10199,10.83,2
+NYC,10467,Noise - Street/Sidewalk,1017,10199,9.97,3
+NYC,11201,Illegal Parking,4206,10278,40.92,1
+NYC,11201,Noise - Residential,890,10278,8.66,2
+NYC,11201,Noise - Street/Sidewalk,838,10278,8.15,3
+NYC,11207,Noise - Residential,1107,9635,11.49,1
+NYC,11207,Illegal Parking,1069,9635,11.09,2
+NYC,11207,UNSANITARY CONDITION,643,9635,6.67,3
+NYC,11226,Noise - Residential,2246,13832,16.24,1
+NYC,11226,UNSANITARY CONDITION,1247,13832,9.02,2
+NYC,11226,Illegal Parking,1244,13832,8.99,3
+NYC,11385,Illegal Parking,2407,10037,23.98,1
+NYC,11385,Blocked Driveway,885,10037,8.82,2
+NYC,11385,Noise - Residential,673,10037,6.71,3
+
+--- resolution_by_city ---
+source_city,valid_completed_request_count,average_resolution_hours,median_resolution_hours
+LA,762846,229.18,46.16
+NYC,704176,89.01,4.86
+
+--- slowest_request_types ---
+source_city,request_type,valid_completed_request_count,average_resolution_hours,rank
+LA,Single Streetlight Issue,7872,4031.7,1
+LA,Multiple Streetlight Issue,8375,3380.1,2
+LA,Homeless Encampment,33814,1503.55,3
+LA,Illegal Dumping Pickup,56298,180.73,4
+LA,Graffiti Removal,174019,90.27,5
+NYC,Calorie Labeling,1,1440.29,1
+NYC,Mobile Food Vendor,153,1440.26,2
+NYC,Tattooing,12,1440.24,3
+NYC,Poison Ivy,18,1366.86,4
+NYC,Food Establishment,843,1178.77,5
+
+--- status_distribution ---
+source_city,status_category,request_count,city_request_count,percent_of_city_requests
+LA,closed,764851,800000,95.61
+LA,pending,19068,800000,2.38
+LA,open,16081,800000,2.01
+NYC,closed,704789,800000,88.1
+NYC,open,94828,800000,11.85
+NYC,pending,330,800000,0.04
+NYC,unknown,53,800000,0.01
+
+--- channel_distribution ---
+source_city,channel_category,request_count,city_request_count,percent_of_city_requests
+LA,phone,314675,800000,39.33
+LA,mobile_app,277390,800000,34.67
+LA,online_self_service,128422,800000,16.05
+LA,driver_self_report,75986,800000,9.5
+LA,council_office,1940,800000,0.24
+LA,email,1522,800000,0.19
+LA,social,51,800000,0.01
+LA,fax,4,800000,0.0
+LA,walk_in,4,800000,0.0
+LA,web_form,2,800000,0.0
+LA,city_attorney,1,800000,0.0
+LA,letter,1,800000,0.0
+LA,queue_initiated_customer_call,1,800000,0.0
+LA,radio,1,800000,0.0
+NYC,online_self_service,419261,800000,52.41
+NYC,phone,163519,800000,20.44
+NYC,mobile_app,150744,800000,18.84
+NYC,unknown,65687,800000,8.21
+NYC,other,789,800000,0.1
+
+--- most_common_status ---
+source_city,status_category,request_count,city_request_count,percent_of_city_requests
+LA,closed,764851,800000,95.61
+NYC,closed,704789,800000,88.1
+
+--- most_common_channel ---
+source_city,channel_category,request_count,city_request_count,percent_of_city_requests
+LA,phone,314675,800000,39.33
+NYC,online_self_service,419261,800000,52.41

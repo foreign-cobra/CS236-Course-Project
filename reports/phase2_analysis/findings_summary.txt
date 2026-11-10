@@ -1,0 +1,69 @@
+CS 236 Phase 2 Spark Analysis
+=============================
+
+Unified records: 1,600,000
+Unified dataset read from: /mnt/c/Users/izaip/OneDrive/Desktop/CS 236/311-integration/CS236-Course-Project/merged_311.parquet
+
+Creation-date coverage by city:
+  LA: 2024-01-01 00:00:06 through 2024-07-24 23:14:35
+  NYC: 2026-07-22 09:27:15 through 2026-10-05 02:05:08
+Compare city trends cautiously because the source extracts cover different date ranges.
+
+Weekly request-volume extremes (ties are included; bucket is month plus day period):
+  LA highest: 2024-01, day 22-end (40,147 requests)
+  LA lowest: 2024-07, day 22-end (18,294 requests)
+  NYC highest: 2026-08, day 22-end (106,178 requests)
+  NYC lowest: 2026-10, days 1-7 (43,648 requests)
+
+Top ten postal codes by request count:
+  LA 90026: 19,661
+  LA 91342: 18,691
+  LA 90011: 17,299
+  LA 91331: 17,116
+  LA 90003: 16,270
+  LA 90033: 15,174
+  LA 91335: 14,744
+  LA 90019: 14,106
+  LA 90044: 14,000
+  LA 90731: 13,840
+  NYC 11226: 13,832
+  NYC 10457: 10,944
+  NYC 10453: 10,670
+  NYC 11201: 10,278
+  NYC 10452: 10,261
+  NYC 10467: 10,199
+  NYC 10458: 10,049
+  NYC 11385: 10,037
+  NYC 10456: 9,745
+  NYC 11207: 9,635
+
+Resolution performance uses status=Closed, a non-null nonnegative resolution_hours value, non-null timestamps, and closed_at >= created_at.
+The merge-ready status mapping groups original Cancelled/Canceled requests into Closed, so these cannot be separated from completed requests in this output; interpret resolution results with that limitation.
+City averages and medians (hours):
+  LA: n=762,846, average=229.18, median=46.16
+  NYC: n=704,176, average=89.01, median=4.86
+Five request types with the longest mean resolution time (see CSV for counts):
+  LA #1 Single Streetlight Issue: 4031.7 hours (n=7,872)
+  LA #2 Multiple Streetlight Issue: 3380.1 hours (n=8,375)
+  LA #3 Homeless Encampment: 1503.55 hours (n=33,814)
+  LA #4 Illegal Dumping Pickup: 180.73 hours (n=56,298)
+  LA #5 Graffiti Removal: 90.27 hours (n=174,019)
+  NYC #1 Calorie Labeling: 1440.29 hours (n=1)
+  NYC #2 Mobile Food Vendor: 1440.26 hours (n=153)
+  NYC #3 Tattooing: 1440.24 hours (n=12)
+  NYC #4 Poison Ivy: 1366.86 hours (n=18)
+  NYC #5 Food Establishment: 1178.77 hours (n=843)
+
+Most common standardized status by city:
+  LA: closed (764,851, 95.61%)
+  NYC: closed (704,789, 88.1%)
+Most common standardized submission channel by city:
+  LA: phone (314,675, 39.33%)
+  NYC: online_self_service (419,261, 52.41%)
+
+Methods and output files:
+  Weekly counts use calendar-month periods: days 1-7, 8-14, 15-21, and 22-end.
+  Postal code percentages use all requests in that city/postal code as denominator, including missing request types.
+  Status categories are those standardized upstream to Open, Pending, and Closed (with original cancelled values included in Closed); null/unmapped statuses are reported as unknown.
+  Channel groups align clear equivalents: ONLINE/Self Service, PHONE/Call, and MOBILE/Mobile App; other labels are normalized for case and spaces and retained.
+  Detailed tables are saved as headered CSV output folders in this directory.

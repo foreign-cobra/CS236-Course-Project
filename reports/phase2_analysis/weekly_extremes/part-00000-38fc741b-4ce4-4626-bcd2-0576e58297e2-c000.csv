@@ -1,0 +1,5 @@
+source_city,extreme,month,period_number,month_period,request_count
+LA,highest,2024-01,4,day 22-end,40147
+LA,lowest,2024-07,4,day 22-end,18294
+NYC,highest,2026-08,4,day 22-end,106178
+NYC,lowest,2026-10,1,days 1-7,43648
