@@ -34,6 +34,9 @@ DB_PORT = int(os.getenv("DB_PORT", "5432"))
 DB_NAME = os.getenv("DB_NAME", "cs236_db")
 DB_USER = os.getenv("DB_USER", "cs236")
 DB_PASSWORD = os.environ["DB_PASSWORD"]
+SPARK_JDBC_PACKAGE = os.getenv(
+    "SPARK_JDBC_PACKAGE", "org.postgresql:postgresql:42.7.14"
+)
 
 JDBC_URL = f"jdbc:postgresql://{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
@@ -187,6 +190,8 @@ def main():
         .appName("CS236-PostgreSQL-Population")
         .master("local[4]")
         .config("spark.sql.shuffle.partitions", "8")
+    # Add the PostgreSQL JDBC driver required by DataFrameWriter.jdbc().
+    .config("spark.jars.packages", SPARK_JDBC_PACKAGE)
         .getOrCreate()
     )
     spark.sparkContext.setLogLevel("WARN")

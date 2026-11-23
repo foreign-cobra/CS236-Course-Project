@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16.16
+    container_name: cs236-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-cs236_db}
+      POSTGRES_USER: ${DB_USER:-cs236}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in the local .env file}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-cs236} -d ${DB_NAME:-cs236_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  postgres_data:
+
